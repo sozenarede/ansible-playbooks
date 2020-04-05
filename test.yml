@@ -1,0 +1,15 @@
+---
+ - name: Meu teste
+   hosts: all
+   become: yes
+   ansible_user: ansible
+   become_method: sudo
+   
+   tasks:
+   - name: Cat /etc/hosts
+     command: cat /etc/hosts
+     register: opa
+     
+   - name: Debug
+     debug:
+       var: opa
