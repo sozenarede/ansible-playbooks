@@ -23,4 +23,4 @@
    - name: debug2
      debug: 
        var: lista
-     when: ansible_os_family == 'Solaris' and lista.rc = 4
+     when: ansible_os_family == 'Solaris' and lista.rc == 4
