@@ -18,8 +18,9 @@
      command: pkg update
      register: lista
      when: ansible_os_family == 'Solaris'
+     failed_when: false
      
    - name: debug2
      debug: 
        var: lista
-     when: ansible_os_family == 'Solaris'
+     when: ansible_os_family == 'Solaris' and lista.rc not in [0,4]
