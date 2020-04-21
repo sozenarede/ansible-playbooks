@@ -13,3 +13,13 @@
    - name: Debug
      debug:
        var: opa
+       
+   - name: teste
+     command: pkg update
+     register: lista
+     when: ansible_os_family == 'Solaris'
+     
+   - name: debug2
+     debug: 
+       var: lista
+     when: ansible_os_family == 'Solaris'
