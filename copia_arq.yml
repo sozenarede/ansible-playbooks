@@ -12,10 +12,7 @@
    tasks:
    - name: copia
      delegate_to: "{{ reposerver }}"
-     copy:
-       src: "{{ origem }}"
-       dest: "{{ destino }}"
-       remote_src: yes
+     shell: "scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
      when: ansible_hostname != reposerver
    
    - name: lista destino
