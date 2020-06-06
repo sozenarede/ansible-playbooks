@@ -2,7 +2,7 @@
  - name: Meu teste
    hosts: all
    become: yes
-   remote_user: ansible
+   remote_user: root
    become_method: sudo
    
    tasks:
