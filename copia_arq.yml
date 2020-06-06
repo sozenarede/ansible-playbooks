@@ -11,7 +11,7 @@
      
    tasks:
    - name: copia
-     delegate_to: reposerver
+     delegate_to: "{{ reposerver }}"
      copy:
        src: "{{ origem }}"
        dest: "{{ destino }}"
