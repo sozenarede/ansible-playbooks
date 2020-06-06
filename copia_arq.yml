@@ -1,0 +1,29 @@
+
+---
+ - name: Copia Arquivo
+   hosts: all
+   become: yes
+   remote_user: root
+   become_method: sudo
+   vars:
+     origem: /var/xx.iso
+     destino: /tmp/yy.iso
+     
+   tasks:
+   - name: copia
+     delegate_to: reposerver
+     copy:
+       src: "{{ origem }}"
+       dest: "{{ destino }}"
+     when: ansible_hostname != reposerver
+   
+   - name: lista destino
+     command: "ls -l {{ destino }}"
+     register: lsout
+     when: ansible_hostname != reposerver
+     
+   - name: DEBUG
+     debug:
+       var: lsout
+     when: ansible_hostname != reposerver
+   
