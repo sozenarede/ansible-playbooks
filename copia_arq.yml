@@ -12,7 +12,8 @@
    tasks:
    - name: copia
      delegate_to: "{{ reposerver }}"
-     command: "/usr/bin/scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
+     #command: "/usr/bin/scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
+     command: ls -l /etc/hosts
      register: scp_reg
      when: inventory_hostname != reposerver
    
