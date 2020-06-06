@@ -12,7 +12,13 @@
    tasks:
    - name: copia
      delegate_to: "{{ reposerver }}"
-     shell: "/usr/bin/scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
+     command: "/usr/bin/scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
+     register: scp_reg
+     when: inventory_hostname != reposerver
+   
+   - name: DEBUG
+     debug:
+       var: scp_reg
      when: inventory_hostname != reposerver
    
    - name: lista destino
