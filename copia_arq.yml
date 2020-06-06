@@ -15,6 +15,7 @@
      copy:
        src: "{{ origem }}"
        dest: "{{ destino }}"
+       remote_src: yes
      when: ansible_hostname != reposerver
    
    - name: lista destino
