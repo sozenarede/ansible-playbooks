@@ -11,11 +11,11 @@
      
    tasks:
    - name: copia
-     delegate_to: "{{ reposerver }}"
+     #delegate_to: "{{ reposerver }}"
      #command: "/usr/bin/scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
-     command: "ls -l {{ origem }}"
+     command: "ls -l /etc/hosts"
      register: scp_reg
-     when: inventory_hostname != reposerver
+     #when: inventory_hostname != reposerver
    
    - name: DEBUG
      debug:
@@ -25,10 +25,10 @@
    - name: lista destino
      command: "ls -l {{ destino }}"
      register: lsout
-     when: inventory_hostname != reposerver
+     when: no #inventory_hostname != reposerver
      
    - name: DEBUG
      debug:
        var: lsout
-     when: inventory_hostname != reposerver
+     when: no #inventory_hostname != reposerver
    
