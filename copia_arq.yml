@@ -20,7 +20,7 @@
    - name: DEBUG
      debug:
        var: scp_reg
-     when: inventory_hostname != reposerver
+     #when: inventory_hostname != reposerver
    
    - name: lista destino
      command: "ls -l {{ destino }}"
