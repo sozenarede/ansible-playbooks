@@ -12,7 +12,7 @@
    tasks:
    - name: copia
      delegate_to: "{{ reposerver }}"
-     shell: "scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
+     shell: "/usr/bin/scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
      when: inventory_hostname != reposerver
    
    - name: lista destino
