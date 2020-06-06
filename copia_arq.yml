@@ -13,15 +13,15 @@
    - name: copia
      delegate_to: "{{ reposerver }}"
      shell: "scp {{ origem }} {{ inventory_hostname }}:{{ destino }}"
-     when: ansible_hostname != reposerver
+     when: inventory_hostname != reposerver
    
    - name: lista destino
      command: "ls -l {{ destino }}"
      register: lsout
-     when: ansible_hostname != reposerver
+     when: inventory_hostname != reposerver
      
    - name: DEBUG
      debug:
        var: lsout
-     when: ansible_hostname != reposerver
+     when: inventory_hostname != reposerver
    
